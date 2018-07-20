@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>timeboll2</title>
+    <link rel="icon"   href="{%static "img/favicon.ico" %}"/>
+    <style>
+        #d1
+        {
+            text-align: center;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            background-image: url({% static "img/a.png" %});
+            width: 864px;
+            height: 464px;
+        }
+        #time
+        {
+            margin-top:202px;
+            font-size: 60px;
+            letter-spacing: 10px;
+            color: #530000;
+            font-family: "Agency FB";
+        }
+    </style>
+</head>
+<body onload="startime()">
+<div id="d1">
+    <p id="time">
+    </p>
+</div>
+
+    <script>
+        function startime()
+        {
+            var time = new Date()
+            var h = time.getHours()
+            var m = time.getMinutes()
+            var s = time.getSeconds()
+            m = checktime(m)
+            s = checktime(s)
+            h = checktime(h)
+            document.getElementById('time').innerHTML=(h+":"+m+":"+s)
+            t = setTimeout('startime()',1000)
+        }
+        function checktime(x)
+        {
+            if(x<10)
+                x = "0"+x
+            return x        }
+    </script>
+</body>
+</html>

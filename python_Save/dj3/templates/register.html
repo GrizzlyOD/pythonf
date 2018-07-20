@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <style>
+        body{
+            text-align:center;
+            }
+
+        form{
+            position: absolute;
+            top: 30%;
+            transform: translateY(-50%);
+            left: 50%;
+            transform: translateX(-50%);
+            }
+
+    </style>
+</head>
+<body>
+<div>
+    <form method="post" >
+    <tr>账号</tr>
+    {% csrf_token %}
+    <input type="text" name="name"><br>
+    <tr>密码</tr>
+    <input type="text" name="passwd"><br>
+    <input type="submit" value="register">
+    </form>
+    <p id="test">
+        {{result}}
+    </p>
+</div>
+
+<script>
+
+
+
+</script>
+</body>
+</html>

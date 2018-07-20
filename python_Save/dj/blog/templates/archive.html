@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>archive</title>
+    {% load staticfiles%}
+    <link rel="icon" href={% static "img/favicon.ico" %}/>
+    <style type="text/css">
+        #title1
+        {
+            color: #fbff95;
+            font-family: "Segoe UI";
+            font-size: 25px;
+            margin-top: 0px;
+        }
+        body
+        {
+            height: 1500px;
+            background-color: #232323;
+            margin: 0px;
+            text-align: center;
+        }
+        p
+        {
+            color:whitesmoke;
+        }
+        div.centop
+        {
+            height: 859px;
+            background-image:url({% static "img/b.jpg" %});
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        #c1
+        {
+            color: rgba(255, 235, 60, 0.627);
+            font-family: Arial;
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 150px;
+            padding-top: 150px;
+        }
+        div.timemid
+        {
+            margin: 15px;
+        }
+        #time
+        {
+            color: #666666;
+            font-size: 14px;
+        }
+
+    </style>
+    <script>
+        function startime()
+        {
+            var show_day=new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+            var time = new Date()
+            var date = time.getDate()
+            var d = time.getDay()
+            var mo = time.getMonth()+1
+            var y = time.getFullYear()
+            var h = time.getHours()
+            var m = time.getMinutes()
+            var s = time.getSeconds()
+            m = checktime(m)
+            h = checktime(h)
+            s = checktime(s)
+            document.getElementById('time').innerHTML=(mo+"/"+date+"/"+y+" "+show_day[d]+" "+h+":"+m+":"+s)
+            t = setTimeout('startime()',1000)
+        }
+        function checktime(x)
+        {
+            if(x<10)
+                x = "0"+x
+            return x
+        }
+    </script>
+</head>
+<body onload="startime()">
+
+<div class="centop">
+    <div class="c1" id="c1">
+        Fate_GriCode
+    </div>
+    {% for post in posts %}
+    <h2 id="title1">{{ post.title }}</h2>
+    <p>{{ post.timestamp }}</p>
+    <p>{{ post.body }}</p>
+    {% endfor %}
+</div>
+
+<div class="timemid">
+    <div id="time">
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

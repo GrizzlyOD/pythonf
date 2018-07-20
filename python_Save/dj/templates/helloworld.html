@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+
+<script>
+        function startime()
+        {
+            var time = new Date()
+            var h = time.getHours()
+            var m = time.getMinutes()
+            var s = time.getSeconds()
+            m = checktime(m)
+            s = checktime(s)
+            h = checktime(h)
+            document.getElementById('time').innerHTML=(h+":"+m+":"+s)
+            t = setTimeout('startime()',1000)
+        }
+        function checktime(x)
+        {
+            if(x<10)
+                x = "0"+x
+            return x        }
+    </script>
+
+</body>
+</html>
